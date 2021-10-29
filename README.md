@@ -1,8 +1,10 @@
 # GPCR_fs_classifier
+## Introduction
 GPCR_fs_classifier is a convolutional neural network (CNN) that can classify functional states for G protein-coupled receptors (GPCRs) from the rhodopsin family (class A).
 
 This algorithm uses distance maps to represent the structural conformation of the GPCRs. The CNN take the distance maps and return a binary classification related to the activity of the ligand bound to the GPCR.
 
+## Description of the material provided
 In this GitHub we provide all the material required to replicate this proyect. You can find the following files in this repository:
 
   Code files
