@@ -2,36 +2,49 @@
 ## Introduction
 GPCR_fs_classifier is a convolutional neural network (CNN) that can classify functional states for G protein-coupled receptors (GPCRs) from the rhodopsin family (class A).
 
-This algorithm uses distance maps, obtained from PDB structural information, to represent the structural conformation of the GPCRs. The CNN takes the distance maps and returns a binary classification, agonist or antagonist, related to the activity of the ligand bound to the GPCR. The accuracy of the model reached 94.12% in the validation dataset and 93.33% in the test set, with losses of 0.18 and 1.23 respectively.
-
-With this activity we can 
+We present a reliable convolutional neural network-based algorithm capable of classifying functional states of G Protein-Coupled Receptors (GPCRs). Classification of GPCR functional states is of great interest in pharmacology due to their relevance as drug targets and abundance in human cells. Our algorithm employs a novel protein representation called RRCS Ballesteros Matrices (RBM) calculated with the RCSB PDB and GPCRdb databases. Employing the RBM representation, our convolutional neural network (Model A) was able to classify a GPCR in its two most frequent functional states: those conducted by the presence of an agonist or an antagonist ligand. We tested our algorithm in an unknown dataset of 48 GPCR PDB structures. As a result, the proposed network successfully classified the structures, achieving accuracy and loss of 95.83% and 0.33, respectively. Also, we obtained an f1-score of 95.86% for this model, despite the limitations due to the scarce data. Moreover, we developed a second model (Model B) with similar accuracy but were able to identify the most relevant contacts from the GPCR that are also related to experimental information. With this, we identified the second extracellular loop (ECL2) and the extracellular sections of transmembrane helix 4 (TM4) and 5 (TM5) helices as key regions employed by our algorithm to characterize the functional states of GPCRs.
 
 ## Provided material description
 
-This GitHub repository contains all of the materials needed to replicate this project.You can find the following files in this repository:
+This GitHub repository contains all of the materials needed to replicate this work.You can find the following files in this repository:
 
-### Files with code
+### Folders with code
 
- * Data_preparation.py - This script prepares the training data, obtains the distance maps from the selected PDB files, and separates the images into the respective classes.
- * CNN.py - In this script, the CNN is prepared and trained. If a model obtains an accuracy greater than 92.0% and a loss smaller than 0.2, the model is saved.
- * PDB_classifier - Here you can find the code to use the saved model and predict the ligand activity classification on the test set. Moreover, you can obtain a confussion matrix to evaluate the model performance.
+ * CNN - The CNN model to train the network.
+ * Grad_CAM - The required functions to obtain the GradCAM maps and the corresponding analysis.
+ * Images_preprocessing - The functions required to preprocess the PDBs and prepare the datasets for the model.
 
-### Suplementary files
+### Dataset_files
 
- * Name_files.zip - In this zip you can find the names of all the PDB structural files that we used in this proyect, they are in txt files separated by their classification. We only use the agonist and antagonist ligand activities.
- * red_V02_0.18.tf.zip - This zip includes a stored model that we obtained from CNN and that we used for the classifications.
-
-### Dataset
-
- * Train_Agonista.zip - The training files for the agonist class.
- * Train_Antagonista.zip - The training files for the antagonist class.
- * validation.zip - The validation files. They are already classified into agonist and antagonist.
- * test.zip - The test files are already classified into agonist and antagonist.
+ * Dataset_files_2.zip - Extra files for the CAM maps visualization and analysis
+ * Dataset_files_RBM.zip - All files related to the RBM representation.
+ * PDBs_sets - The folder that contains the .zip files for the dataset. 
 
 You need to unzip the dataset in the following way:
 
-       Data--->train--->Agonist
-            |        |->Antagonist
+Dataset_files
+      |
+      |              Dataset_files_2.zip
+      |
+      |----Datasets
+      |----Dicts_RRCS_contacts
+      |----Grad_CAM_matrix
+      |----Grad_CAM_resultados
+      |----PDB_Names
+      |----Resultados_analisis_CAM
+      |----saved_model
+      |
+      |              Dataset_files_RBM.zip
+      |
+      |----Ballest_matrix_images
+      |----Ballest_matrix
+      |----RRCS_matrix_images
+      |----RRCS_matrix
+      |
+      |              PDBs_sets
+      |
+      |----PDBs--->train--->Agonist
+            |            |->Antagonist
             |
             |->test--->Agonist
             |       |->Antagonist
@@ -40,4 +53,4 @@ You need to unzip the dataset in the following way:
                           |->Antagonist
 
 
-Also, you can use Data_preparation.py and you are going to obtain the same files. 
+Also, you can use Images_preprocessing folder scripts and you are going to obtain the same files. 
