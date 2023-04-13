@@ -22,35 +22,35 @@ This GitHub repository contains all of the materials needed to replicate this wo
 
 You need to unzip the dataset in the following way:
 
-Dataset_files
-      |
-      |              Dataset_files_2.zip
-      |
-      |----Datasets
-      |----Dicts_RRCS_contacts
-      |----Grad_CAM_matrix
-      |----Grad_CAM_resultados
-      |----PDB_Names
-      |----Resultados_analisis_CAM
-      |----saved_model
-      |
-      |              Dataset_files_RBM.zip
-      |
-      |----Ballest_matrix_images
-      |----Ballest_matrix
-      |----RRCS_matrix_images
-      |----RRCS_matrix
-      |
-      |              PDBs_sets
-      |
-      |----PDBs--->train--->Agonist
-            |            |->Antagonist
+      Dataset_files
             |
-            |->test--->Agonist
-            |       |->Antagonist
+            |              Dataset_files_2.zip
             |
-            |->validation--->Agonist
-                          |->Antagonist
+            |----Datasets
+            |----Dicts_RRCS_contacts
+            |----Grad_CAM_matrix
+            |----Grad_CAM_resultados
+            |----PDB_Names
+            |----Resultados_analisis_CAM
+            |----saved_model
+            |
+            |              Dataset_files_RBM.zip
+            |
+            |----Ballest_matrix_images
+            |----Ballest_matrix
+            |----RRCS_matrix_images
+            |----RRCS_matrix
+            |
+            |              PDBs_sets
+            |
+            |----PDBs--->train--->Agonist
+                  |            |->Antagonist
+                  |
+                  |->test--->Agonist
+                  |       |->Antagonist
+                  |
+                  |->validation--->Agonist
+                                |->Antagonist
 
 
 Also, you can use Images_preprocessing folder scripts and you are going to obtain the same files. 
